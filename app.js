@@ -19,7 +19,7 @@ app.post('/agregar-dato', async (req, res) => {
     const client = await auth.getClient();
     const sheets = google.sheets({ version: 'v4', auth: client });
 
-    const valores = req.body.data;
+    const valores = [req.body.data];
 
     await sheets.spreadsheets.values.append({
       spreadsheetId: SPREADSHEET_ID,
